@@ -33,7 +33,7 @@ The goals of this project are the following:
 
 ### 1. Dataset Summary & Exploration
 
-#### About the dataset
+#### 1.1. About the dataset
 
 The [German Traffic Signs Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset) is available in pickled form in the folder data which contains 32x32x3 RGB images in the following files which are loaded using the `pickle` library:
 
@@ -51,7 +51,7 @@ The pickled data is a dictionary with 4 key/value pairs:
 There are 43 different classes/labels in this dataset. The mapping between the class labels (for e.g.: 14) and class names (for e.g.: 'Stop') are available in the file `signnames.csv`. The `pandas` library is used to load the mappings. 
 
 
-#### Visualization of the dataset
+#### 1.2. Visualization of the dataset
 
 The dataset consists of 43 different types of Traffic Signs as shown below. The images are plotted using the `imshow()` function of the `matplotlib` library.  
 
@@ -67,15 +67,15 @@ The following image shows the distribution of the whole dataset and the individu
 
 The image datasets have the dimensions of (samples, 32, 32, 3), i.e., they are n samples of 32x32 RGB images, where n depends on the type of image dataset. Before building a model architecture, the data is preprocessed using the following techniques to improve the performance of the ConvNet: 
 
-#### Step 1: Grayscale conversion
+#### 2.1. Grayscale conversion
 
 According to [Sermanet and Lecun](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf), the performance of their ConvNet improved while using grayscale images instead of color images. Although, color could be a useful feature in classifying traffic signs (for e.g.: some colors have special meaning in traffic signs and obviously traffic lights), it can be argued that using 3 color channels increases the features to be learned, thus increasing the complexity of the model. For this didactic project, grayscale images have been used. The images are converted to grayscale using the `cvtColor` function of the `OpenCV `library. After grayscale conversion, the image datasets have the dimensions of (n, 32, 32). The 3 RGB color channels are reduced to a single grayscale color channel. 
 
-#### Step 2: Contrast Enhancement by Histogram Equalization
+#### 2.2. Contrast Enhancement by Histogram Equalization
 
 The quality of the images were poor and of low contrast. In order to enhance the quality of the images, the contrast could be increased using [Adaptive Histogram Equalization(AHE)](https://cromwell-intl.com/3d/histogram/). A drawback of this contrast enhancement is the resulting amplification of noise. It can be avoided by clipping any histogram bin above the defined clipping limit before equalization. Thus, a special contrast enhancement step called [Contrast Limited Adaptive Histogram Equalization(CLAHE)](http://amroamroamro.github.io/mexopencv/opencv/clahe_demo_gui.html) is applied to the images using the `createCLAHE` function of the `OpenCV` library. 
 
-#### Step 3: Normalization
+#### 2.3. Normalization
 It is advisable to normalize the image data so that the data has mean zero and standard deviation of one. It can be done using the formula (image - mean(image)) / standard_deviation(image)
 
 Steps 2 and 3 do not alter the dimensions of the image datasets. As a final step, the image datasets are converted to 4 dimensional arrays with dimensions (n, 32, 32, 1) to be compatible with the input layer of the ConvNet.
@@ -95,7 +95,7 @@ The improvement of the images as a result of the above preprocessing steps can b
 
 ### 3. Designing and Training a Model Architecture
 
-#### About LeNet-5
+#### 3.1. About LeNet-5
 
 I chose the `LeNet-5` Architecture from [Yann Lecun](http://yann.lecun.com/exdb/lenet/) and challenged myself to achieve > 95% validation accuracy without modifying the LeNet-5 model architecture, but by tuning the preprocessing steps and few hyperparameters like `batch size` and `learning rate`. 
 
@@ -103,7 +103,7 @@ The `LeNet-5` was developed to classify handwritten letters of the English alpha
 
 ![alt text][image12]
 
-#### Training the ConvNet
+#### 3.2. Training the ConvNet
 
 The training of the ConvNet was done in mini-batches. The error function is based on `Cross Entropy` over the softmax probabilties of the final layer of the ConvNet. This error function is then averaged over all samples and the `Adam Optimizer` (with learning rate) is used to minimize the averaged error function. The goal is to achieve >95% accuracy on the validation dataset. 
 
@@ -134,7 +134,7 @@ Thus, the goals of this challenge were met by this simple LeNet-5 model due to g
 
 ### 4. Testing the Model on New Unseen Images
 
-#### Need for testing on new unseen images
+#### 4.1. Need for testing on new unseen images
 
 The Traffic Sign Classifier is to be used in the real-world on a Self-Driving Car. To test the robustness of the model, the real world is simulated by testing the model on new unseen images outside its dataset and observing its performance. 
 
@@ -144,7 +144,7 @@ The following 5 German traffic signs were found from the Internet:
 
 In general, the images are of high contrast and the signs are prominently visible on the image. The model is expected to perform well on these images. The fourth image might be difficult to classify because the Pedestrian sign at low resolutions could be easily confused with other signs such as General Caution, Right of Way at the Next Intersection, Traffic Signals ahead, etc. 
 
-#### Performance of the model on new unseen images
+#### 4.2. Performance of the model on new unseen images
 
 The predictions of the new images of Traffic Signs by the model were: 
 
@@ -161,7 +161,7 @@ The predictions of the new images of Traffic Signs by the model were:
 
 The model was able to correctly guess 5 of the 5 traffic signs, which gives an accuracy of 100%. This compares favorably to the accuracy on the test set of 94%, eventhough the new images set is of a very small size. 
 
-#### Certainty of the model in making predictions
+#### 4.3. Certainty of the model in making predictions
 
 The prediction labels were computed by picking out the maximum of the softmax probabilities of the output vector of size `n_classes = 43`. The certainty of the model in its predictions can be observed by looking at the top 5 softmax probabilities of the output vector. This is done using the `tf.nn.top_k` function which takes as input arguments: logits and k, and outputs the top 5 softmax probabilities and associated labels. 
 
