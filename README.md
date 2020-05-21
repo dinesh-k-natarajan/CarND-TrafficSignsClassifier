@@ -16,18 +16,18 @@ The goals of this project are the following:
 
 [//]: # (Image References)
 
-[image1]:  screenshots/GermanTrafficSignsSamples.jpg
-[image2]:  screenshots/ClassLabelsDistribution.jpg
-[image3]:  screenshots/ImagePreprocessing.jpg
-[image4]:  screenshots/ImagePreprocessing_1.jpg
-[image5]:  screenshots/ImagePreprocessing_2.jpg
-[image6]:  screenshots/ImagePreprocessing_3.jpg
-[image7]:  screenshots/ImagePreprocessing_4.jpg
-[image8]:  screenshots/AccuracyinTraining.jpg
-[image9]:  screenshots/NewTestImages.jpg
-[image10]: screenshots/NewTestImages_Prediction.jpg
-[image11]: screenshots/NewTestImages_Softmax.jpg
-[image12]: screenshots/lenet.png
+[image1]:  ./screenshots/GermanTrafficSignsSamples.png
+[image2]:  ./screenshots/ClassLabelsDistribution.png
+[image3]:  ./screenshots/ImagePreprocessing.png
+[image4]:  ./screenshots/ImagePreprocessing_1.png
+[image5]:  ./screenshots/ImagePreprocessing_2.png
+[image6]:  ./screenshots/ImagePreprocessing_3.png
+[image7]:  ./screenshots/ImagePreprocessing_4.png
+[image8]:  ./screenshots/AccuracyinTraining.png
+[image9]:  ./screenshots/NewTestImages.png
+[image10]: ./screenshots/NewTestImages_Prediction.png
+[image11]: ./screenshots/NewTestImages_Softmax.png
+[image12]: ./screenshots/lenet.png
 
 ---
 
