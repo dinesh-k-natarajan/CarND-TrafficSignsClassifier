@@ -35,11 +35,13 @@ The goals of this project are the following:
 
 #### 1.1. About the dataset
 
-The [German Traffic Signs Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset) is available in pickled form in the folder 'data' (train.p was too large to be uploaded to GitHub, but the entire dataset can be downloaded from the mentioned link) which contains 32x32x3 RGB images in the following files which are loaded using the `pickle` library:
+The [German Traffic Signs Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset) is available in pickled form in the folder 'data' which contains 32x32x3 RGB images in the following files which are loaded using the `pickle` library:
 
 * `train.p` - Training set of 34799 images
 * `valid.p` - Validation set of 4410 images
 * `test.p`  - Test set of 12630 images
+
+*Note: train.p was too large to be uploaded to GitHub, but the entire dataset can be downloaded from the mentioned link*
 
 The pickled data is a dictionary with 4 key/value pairs:
 
