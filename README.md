@@ -134,7 +134,7 @@ The best accuracies achieved by the model were:
 * On validation dataset = **96.7%** 
 * On test dataset       = 94%
 
-Thus, the goals of this challenge were met by this simple LeNet-5 model due to good preprocessing techniques and hyperparameter tuning. 
+Thus, the goals of this challenge were met by this simple `LeNet-5` model due to good preprocessing techniques and hyperparameter tuning. 
 
 ### 4. Testing the Model on New Unseen Images
 
