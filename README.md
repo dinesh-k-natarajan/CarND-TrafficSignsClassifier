@@ -124,7 +124,7 @@ The training and validation steps can be summarized as follows:
 
 The training and validation accuracies obtained by the model are visualized in the plot below: 
 
-![alt text][8]
+![alt text][image8]
  
 The best accuracies achieved by the model were: 
 
