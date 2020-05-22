@@ -125,6 +125,7 @@ The LeNet-5 model has 10 classes, and thus the output layer has 10 neurons. For 
 | ReLu Activation 4		  | Non-linear activation function - Rectified Linear Unit  		        		   |
 | Fully Connected Layer 3 | Input Shape = 84, Output Shape = 43 (`n_classes`)    					           |
 
+No other modifications were done to the `LeNet-5` architecture except the size of the output layer for the sake of simplicity. 
 
 #### 3.2. Training the ConvNet
 
