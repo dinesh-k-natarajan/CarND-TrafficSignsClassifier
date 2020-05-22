@@ -107,6 +107,25 @@ The `LeNet-5` was developed to classify handwritten letters of the English alpha
 
 ![alt text][image12]
 
+The LeNet-5 model has 10 classes, and thus the output layer has 10 neurons. For the German Traffic Signs dataset, there are 43 classes and thus the output layer is modified to have 43 neurons. A summary of the LeNet-5 architecture modified for this project is given in the table below:
+
+| Layers		          |     Descriptions	        					                                   | 
+|:-----------------------:|:----------------------------------------------------------------------------------:| 
+| Input          		  | Input Shape = 32x32x1 Grayscale Image			                                   | 
+| Convolutional Layer 1	  | 6 Filters of size = 5x5x1, Stride = 1x1, 'Valid' Padding, Output Shape = 28x28x6   |
+| ReLu Activation 1		  | Non-linear activation function - Rectified Linear Unit      					   |
+| Max Pooling 1    		  | Pooling size  = 2x2, Stride = 2x2, 'Valid' Padding, Output Shape = 14x14x6    	   |
+| Convolutional Layer 2   | 16 Filters of size = 5x5x6, Stride = 1x1, 'Valid' Padding, Output Shape = 10x10x16 |
+| ReLu Activation 2		  | Non-linear activation function - Rectified Linear Unit  		        		   |
+| Max Pooling 2    		  | Pooling size  = 2x2, Stride = 2x2, 'Valid' Padding, Output Shape = 5x5x16          |
+| Flatten         		  | Flattens the Input Shape = 5x5x16 to Output Shape = 400                   		   |
+| Fully Connected Layer 1 | Input Shape = 400, Output Shape = 120    								           |
+| ReLu Activation 3		  | Non-linear activation function - Rectified Linear Unit  		        		   |
+| Fully Connected Layer 2 | Input Shape = 120, Output Shape = 84    								           |
+| ReLu Activation 4		  | Non-linear activation function - Rectified Linear Unit  		        		   |
+| Fully Connected Layer 3 | Input Shape = 84, Output Shape = 43 (`n_classes`)    					           |
+
+
 #### 3.2. Training the ConvNet
 
 The training of the ConvNet was done in mini-batches. The error function is based on `Cross Entropy` over the softmax probabilties of the final layer of the ConvNet. This error function is then averaged over all samples and the `Adam Optimizer` (with learning rate) is used to minimize the averaged error function. The goal is to achieve >95% accuracy on the validation dataset. 
